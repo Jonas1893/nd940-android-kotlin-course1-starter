@@ -19,4 +19,11 @@
     <string name="instructions_text">Instructions Description</string>
     <string name="shoe_list_button_text">Shoe list</string>
     <string name="logout_menu_logout">Logout</string>
+    <string name="shoe_name_text_hint">Name</string>
+    <string name="shoe_size_text_hint">Shoe Size</string>
+    <string name="shoe_description_text_hint">Description</string>
+    <string name="save_button_title">Save</string>
+    <string name="shoe_company_text_hint">Company</string>
+    <string name="cancel_button_title">Cancel</string>
+    <string name="shoe_details_title">Shoe Details</string>
 </resources>
