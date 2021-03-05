@@ -26,4 +26,5 @@
     <string name="shoe_company_text_hint">Company</string>
     <string name="cancel_button_title">Cancel</string>
     <string name="shoe_details_title">Shoe Details</string>
+    <string name="welcome_fragment_nav_title">Welcome</string>
 </resources>
