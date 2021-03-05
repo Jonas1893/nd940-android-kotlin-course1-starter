@@ -20,8 +20,6 @@ import com.udacity.shoestore.R
 
 class LoginFragment : Fragment() {
 
-    private lateinit var loginViewModel: LoginViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
