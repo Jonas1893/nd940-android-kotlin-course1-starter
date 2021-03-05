@@ -29,4 +29,6 @@
     <string name="welcome_fragment_nav_title">Welcome</string>
     <string name="fragment_instructions_nav_title">Instructions</string>
     <string name="fragment_login_nav_title">Login</string>
+    <string name="fragment_shoe_list_nav_title">Shoe List</string>
+    <string name="fragment_shoe_details_nav_title">Shoe Details</string>
 </resources>
