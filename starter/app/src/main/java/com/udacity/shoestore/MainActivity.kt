@@ -28,23 +28,10 @@ class MainActivity : AppCompatActivity() {
         setupNavigation(binding)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        super.onCreateOptionsMenu(menu);
-
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.logout_menu, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return super.onOptionsItemSelected(item)
-    }
-
     private fun setupNavigation(binding: ActivityMainBinding) {
         val navController = this.findNavController(R.id.myNavHostFragment)
         appBarConfiguration = AppBarConfiguration(navController.graph)
 
         NavigationUI.setupWithNavController(binding.toolbar, navController, appBarConfiguration)
-        setSupportActionBar(binding.toolbar)
     }
 }
