@@ -27,4 +27,6 @@
     <string name="cancel_button_title">Cancel</string>
     <string name="shoe_details_title">Shoe Details</string>
     <string name="welcome_fragment_nav_title">Welcome</string>
+    <string name="fragment_instructions_nav_title">Instructions</string>
+    <string name="fragment_login_nav_title">Login</string>
 </resources>
