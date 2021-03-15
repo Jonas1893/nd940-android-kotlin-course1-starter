@@ -12,6 +12,10 @@ class ShoeListViewModel : ViewModel() {
     val shoes: LiveData<List<Shoe>>
         get() = _shoes
 
+    private val _eventAddShoe = MutableLiveData<Boolean>()
+    val eventAddShoe: LiveData<Boolean>
+        get() = _eventAddShoe
+
     init {
         var shoeList = ArrayList<Shoe>(0)
         val shoe1Images = ArrayList<Image>(0)
@@ -27,6 +31,18 @@ class ShoeListViewModel : ViewModel() {
 
         shoeList.add(shoe1)
 
+        for (i in 0..20) {
+            shoeList.add(shoe1)
+        }
+
         _shoes.value = shoeList
+    }
+
+    fun onAddShoeButtonTapped() {
+        _eventAddShoe.value = true
+    }
+
+    fun onAddShoeComplete() {
+        _eventAddShoe.value = false
     }
 }
