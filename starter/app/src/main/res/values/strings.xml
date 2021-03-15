@@ -31,4 +31,6 @@
     <string name="fragment_login_nav_title">Login</string>
     <string name="fragment_shoe_list_nav_title">Shoe List</string>
     <string name="fragment_shoe_details_nav_title">Shoe Details</string>
+    <string name="shoe_info_format">%s \"%s\"</string>
+    <string name="shoe_size_format">%.0f</string>
 </resources>

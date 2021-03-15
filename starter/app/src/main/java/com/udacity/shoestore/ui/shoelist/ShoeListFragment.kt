@@ -47,7 +47,7 @@ class ShoeListFragment : Fragment() {
             for (shoe in allShoes) {
                 val shoeInfo = ItemShoeInfoBinding.inflate(layoutInflater)
                 shoeInfo.shoe = shoe
-                
+
                 binding.linearLayout.addView(shoeInfo.root)
             }
         }
