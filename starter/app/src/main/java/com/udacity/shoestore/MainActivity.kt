@@ -33,5 +33,13 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
 
         NavigationUI.setupWithNavController(binding.toolbar, navController, appBarConfiguration)
+
+        // problem:
+        // I need this to be able to show the logout menu in the shoelist Fragment
+        // However back button does no longer work now?!
+        setSupportActionBar(binding.toolbar)
+
+        //supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        //supportActionBar?.setDisplayShowHomeEnabled(true)
     }
 }

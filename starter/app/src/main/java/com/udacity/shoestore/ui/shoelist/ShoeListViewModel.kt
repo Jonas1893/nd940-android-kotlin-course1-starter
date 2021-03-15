@@ -16,6 +16,10 @@ class ShoeListViewModel : ViewModel() {
     val eventAddShoe: LiveData<Boolean>
         get() = _eventAddShoe
 
+    private val _eventLogout = MutableLiveData<Boolean>()
+    val eventLogout: LiveData<Boolean>
+        get() = _eventLogout
+
     init {
         var shoeList = ArrayList<Shoe>(0)
         val shoe1Images = ArrayList<Image>(0)
@@ -44,5 +48,13 @@ class ShoeListViewModel : ViewModel() {
 
     fun onAddShoeComplete() {
         _eventAddShoe.value = false
+    }
+
+    fun onLogoutButtonTapped() {
+        _eventLogout.value = true
+    }
+
+    fun onLogoutComplete() {
+        _eventLogout.value = false
     }
 }

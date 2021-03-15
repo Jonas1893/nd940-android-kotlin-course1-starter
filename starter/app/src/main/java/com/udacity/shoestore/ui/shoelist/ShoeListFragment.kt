@@ -1,9 +1,7 @@
 package com.udacity.shoestore.ui.shoelist
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Button
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
@@ -20,6 +18,12 @@ class ShoeListFragment : Fragment() {
 
     private lateinit var viewModel: ShoeListViewModel
     private lateinit var viewModelFactory: ShoeListViewModelFactory
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setHasOptionsMenu(true)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,6 +57,24 @@ class ShoeListFragment : Fragment() {
             }
         })
 
+        viewModel.eventLogout.observe(viewLifecycleOwner, Observer { newEventLogout ->
+            if (newEventLogout) {
+                findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToLoginFragment())
+                viewModel.onLogoutComplete()
+            }
+        })
+
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.logout_menu, menu)
+
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        viewModel.onLogoutButtonTapped()
+        return super.onOptionsItemSelected(item)
     }
 }
