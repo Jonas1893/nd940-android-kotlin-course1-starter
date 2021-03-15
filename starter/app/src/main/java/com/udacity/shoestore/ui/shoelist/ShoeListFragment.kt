@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
+import com.udacity.shoestore.databinding.ItemShoeInfoBinding
 import com.udacity.shoestore.models.Shoe
 import timber.log.Timber
 
@@ -44,9 +45,10 @@ class ShoeListFragment : Fragment() {
         val allShoes: List<Shoe>? = viewModel.shoes.value
         if (allShoes != null) {
             for (shoe in allShoes) {
-                val valueTV = TextView(this.context)
-                valueTV.text = "hallo hallo"
-                binding.linearLayout.addView(valueTV)
+                val shoeInfo = ItemShoeInfoBinding.inflate(layoutInflater)
+                shoeInfo.shoe = shoe
+                
+                binding.linearLayout.addView(shoeInfo.root)
             }
         }
 
