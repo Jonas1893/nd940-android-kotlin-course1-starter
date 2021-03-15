@@ -42,15 +42,16 @@ class ShoeListFragment : Fragment() {
         binding.shoeListViewModel = viewModel
         binding.lifecycleOwner = this
 
-        val allShoes: List<Shoe>? = viewModel.shoes.value
-        if (allShoes != null) {
-            for (shoe in allShoes) {
-                val shoeInfo = ItemShoeInfoBinding.inflate(layoutInflater)
-                shoeInfo.shoe = shoe
+        viewModel.shoes.observe(viewLifecycleOwner, Observer { listShoes ->
+            if (listShoes != null) {
+                for (shoe in listShoes) {
+                    val shoeInfo = ItemShoeInfoBinding.inflate(layoutInflater)
+                    shoeInfo.shoe = shoe
 
-                binding.linearLayout.addView(shoeInfo.root)
+                    binding.linearLayout.addView(shoeInfo.root)
+                }
             }
-        }
+        })
 
         viewModel.eventAddShoe.observe(viewLifecycleOwner, Observer { newEventAddShoe ->
             if (newEventAddShoe) {
