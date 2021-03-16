@@ -25,9 +25,8 @@ class ShoeListViewModel : ViewModel() {
     }
 
     fun addShoe(shoe: Shoe) {
-        // add at beginning of list
-        val newShoes: MutableList<Shoe> = mutableListOf(shoe)
-        _shoes.value?.let { newShoes.addAll(it.toMutableList()) }
+        val newShoes = _shoes.value?.toMutableList()
+        newShoes?.add(0, shoe)
 
         _shoes.value = newShoes?.toList()
     }
