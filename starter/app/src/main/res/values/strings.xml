@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">ShoeStore</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">your@email.com</string>
+    <string name="prompt_password">Your Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_register">Register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="welcome_title_text">Welcome</string>
+    <string name="usernameTest">Username</string>
+    <string name="passwordText">Password</string>
+    <string name="welcomeText">Welcome to our shoe store</string>
+    <string name="instructionsButtonText">Instructions</string>
+    <string name="instructions_title_text">Instructions</string>
+    <string name="instructions_text">Instructions Description</string>
+    <string name="shoe_list_button_text">Shoe list</string>
+    <string name="logout_menu_logout">Logout</string>
+    <string name="shoe_name_text_hint">Name</string>
+    <string name="shoe_size_text_hint">Shoe Size</string>
+    <string name="shoe_description_text_hint">Description</string>
+    <string name="save_button_title">Save</string>
+    <string name="shoe_company_text_hint">Company</string>
+    <string name="cancel_button_title">Cancel</string>
+    <string name="shoe_details_title">Shoe Details</string>
+    <string name="welcome_fragment_nav_title">Welcome</string>
+    <string name="fragment_instructions_nav_title">Instructions</string>
+    <string name="fragment_login_nav_title">Login</string>
+    <string name="fragment_shoe_list_nav_title">Shoe List</string>
+    <string name="fragment_shoe_details_nav_title">Shoe Details</string>
+    <string name="shoe_info_format">%s \"%s\"</string>
+    <string name="shoe_size_format">%.0f</string>
 </resources>
