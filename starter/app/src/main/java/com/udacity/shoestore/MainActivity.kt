@@ -1,18 +1,13 @@
 package com.udacity.shoestore
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
-import com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout
 import com.udacity.shoestore.databinding.ActivityMainBinding
+import kotlinx.android.synthetic.main.activity_main.*
 import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
@@ -32,14 +27,17 @@ class MainActivity : AppCompatActivity() {
         val navController = this.findNavController(R.id.myNavHostFragment)
         appBarConfiguration = AppBarConfiguration(navController.graph)
 
-        NavigationUI.setupWithNavController(binding.toolbar, navController, appBarConfiguration)
+        NavigationUI.setupWithNavController(binding.toolbar, navController)
 
-        // problem:
+        // TODO problem:
         // I need this to be able to show the logout menu in the shoelist Fragment
-        // However back button does no longer work now?!
-        setSupportActionBar(binding.toolbar)
+        // However back button does no longer work then?! Do I need to implement back button
+        // functionality custom for each fragment in that case or is there a better way?
+        //setSupportActionBar(binding.toolbar)
+    }
 
-        //supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        //supportActionBar?.setDisplayShowHomeEnabled(true)
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = this.findNavController(R.id.myNavHostFragment)
+        return navController.navigateUp()
     }
 }

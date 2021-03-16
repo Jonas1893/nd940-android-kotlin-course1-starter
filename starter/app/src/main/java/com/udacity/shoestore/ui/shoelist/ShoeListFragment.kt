@@ -15,12 +15,6 @@ class ShoeListFragment : Fragment() {
 
     private val viewModel: ShoeListViewModel by activityViewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        setHasOptionsMenu(true)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,6 +24,8 @@ class ShoeListFragment : Fragment() {
             inflater,
             R.layout.fragment_shoe_list, container, false
         )
+
+        setHasOptionsMenu(true)
 
         binding.shoeListViewModel = viewModel
         binding.lifecycleOwner = this
@@ -66,9 +62,9 @@ class ShoeListFragment : Fragment() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.logout_menu, menu)
-
         super.onCreateOptionsMenu(menu, inflater)
+
+        inflater.inflate(R.menu.logout_menu, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
