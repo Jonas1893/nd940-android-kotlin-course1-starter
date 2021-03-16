@@ -43,6 +43,8 @@ class ShoeListFragment : Fragment() {
         binding.lifecycleOwner = this
 
         viewModel.shoes.observe(viewLifecycleOwner, Observer { listShoes ->
+            binding.linearLayout.removeAllViews()
+
             if (listShoes != null) {
                 for (shoe in listShoes) {
                     val shoeInfo = ItemShoeInfoBinding.inflate(layoutInflater)
@@ -55,7 +57,8 @@ class ShoeListFragment : Fragment() {
 
         viewModel.eventAddShoe.observe(viewLifecycleOwner, Observer { newEventAddShoe ->
             if (newEventAddShoe) {
-                findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailsFragment())
+                viewModel.addShoe(Shoe("test", 42.0, "asdasd", "asdasd"))
+                //findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailsFragment())
                 viewModel.onAddShoeComplete()
             }
         })

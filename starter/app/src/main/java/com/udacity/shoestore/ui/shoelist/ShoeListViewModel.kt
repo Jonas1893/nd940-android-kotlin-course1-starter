@@ -24,6 +24,14 @@ class ShoeListViewModel : ViewModel() {
         seedShoes()
     }
 
+    fun addShoe(shoe: Shoe) {
+        // add at beginning of list
+        val newShoes: MutableList<Shoe> = mutableListOf(shoe)
+        _shoes.value?.let { newShoes.addAll(it.toMutableList()) }
+
+        _shoes.value = newShoes?.toList()
+    }
+
     fun onAddShoeButtonTapped() {
         _eventAddShoe.value = true
     }
