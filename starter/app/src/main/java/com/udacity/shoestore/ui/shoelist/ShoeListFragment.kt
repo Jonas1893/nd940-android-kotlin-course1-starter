@@ -57,8 +57,8 @@ class ShoeListFragment : Fragment() {
 
         viewModel.eventAddShoe.observe(viewLifecycleOwner, Observer { newEventAddShoe ->
             if (newEventAddShoe) {
-                viewModel.addShoe(Shoe("test", 42.0, "asdasd", "asdasd"))
-                //findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailsFragment())
+                //viewModel.addShoe(Shoe("test", 42.0, "asdasd", "asdasd"))
+                findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailsFragment())
                 viewModel.onAddShoeComplete()
             }
         })
