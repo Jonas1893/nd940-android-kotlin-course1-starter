@@ -29,15 +29,6 @@ class MainActivity : AppCompatActivity() {
 
         NavigationUI.setupWithNavController(binding.toolbar, navController)
 
-        // TODO problem:
-        // I need this to be able to show the logout menu in the shoelist Fragment
-        // However back button does no longer work then?! Do I need to implement back button
-        // functionality custom for each fragment in that case or is there a better way?
-        //setSupportActionBar(binding.toolbar)
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = this.findNavController(R.id.myNavHostFragment)
-        return navController.navigateUp()
+        setSupportActionBar(binding.toolbar)
     }
 }
