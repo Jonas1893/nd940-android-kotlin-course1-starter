@@ -3,6 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!--
+    Since this is a really simple view, the more flexible but also more complex ConstraintLayout
+    is just not needed
+    -->
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"

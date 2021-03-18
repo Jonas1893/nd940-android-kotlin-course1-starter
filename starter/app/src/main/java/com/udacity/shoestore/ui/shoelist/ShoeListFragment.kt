@@ -6,7 +6,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.databinding.ItemShoeInfoBinding
@@ -45,7 +47,6 @@ class ShoeListFragment : Fragment() {
 
         viewModel.eventAddShoe.observe(viewLifecycleOwner, Observer { newEventAddShoe ->
             if (newEventAddShoe) {
-                //viewModel.addShoe(Shoe("test", 42.0, "asdasd", "asdasd"))
                 findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailsFragment())
                 viewModel.onAddShoeComplete()
             }
@@ -68,7 +69,13 @@ class ShoeListFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        viewModel.onLogoutButtonTapped()
-        return super.onOptionsItemSelected(item)
+
+        return if (item.itemId == R.id.logoutMenuItem) {
+            viewModel.onLogoutButtonTapped()
+            super.onOptionsItemSelected(item)
+        } else {
+            (NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
+                    || super.onOptionsItemSelected(item))
+        }
     }
 }

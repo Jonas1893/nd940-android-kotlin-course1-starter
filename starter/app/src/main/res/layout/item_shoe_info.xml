@@ -9,12 +9,16 @@
             type="com.udacity.shoestore.models.Shoe" />
     </data>
 
+    <!--
+    Since this is a really simple view, the more flexible but also more complex ConstraintLayout
+    is just not needed
+    -->
     <LinearLayout
         android:id="@+id/muh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="@dimen/shoe_cell_padding">
 
 
         <LinearLayout
