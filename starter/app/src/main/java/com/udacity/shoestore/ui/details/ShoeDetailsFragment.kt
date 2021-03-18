@@ -18,6 +18,7 @@ import timber.log.Timber
 class ShoeDetailsFragment : Fragment() {
 
     private val viewModel: ShoeListViewModel by activityViewModels()
+    private var newShoe: Shoe = Shoe("", 0.0, "", description = "")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,26 +32,19 @@ class ShoeDetailsFragment : Fragment() {
         Timber.d(viewModel.shoes.value?.count().toString())
 
         binding.saveButton.setOnClickListener {
-            binding.apply {
-                if (shoeNameTextEdit.text.isNotEmpty() &&
-                        shoeCompanyTextEdit.text.isNotEmpty() &&
-                        shoeSizeTextEdit.text.isNotEmpty() &&
-                        shoeDescriptionTextEdit.text.isNotEmpty()) {
-                    val newShoe = Shoe(shoeNameTextEdit.text.toString(),
-                        shoeSizeTextEdit.text.toString().toDouble(),
-                        shoeCompanyTextEdit.text.toString(),
-                        shoeDescriptionTextEdit.text.toString())
+            if (newShoe.name.isNotEmpty() &&
+                newShoe.company.isNotEmpty() &&
+                newShoe.size > 0 &&
+                newShoe.description.isNotEmpty()) {
 
-                    Timber.d("Adding shoe")
-                    viewModel.addShoe(newShoe)
+                Timber.d("Adding shoe" + newShoe)
+                viewModel.addShoe(newShoe)
 
-                    Timber.d(viewModel.shoes.value?.count().toString())
-                    findNavController().navigate(ShoeDetailsFragmentDirections.actionShoeDetailsFragmentToShoeListFragment())
-                } else {
-                    Timber.e("Validation failed")
-                    sendValidationToast()
-                }
-
+                Timber.d(viewModel.shoes.value?.count().toString())
+                findNavController().navigate(ShoeDetailsFragmentDirections.actionShoeDetailsFragmentToShoeListFragment())
+            } else {
+                Timber.e("Validation failed" + newShoe.name + newShoe.description + newShoe.company)
+                sendValidationToast()
             }
         }
 
@@ -58,10 +52,12 @@ class ShoeDetailsFragment : Fragment() {
             findNavController().navigate(ShoeDetailsFragmentDirections.actionShoeDetailsFragmentToShoeListFragment())
         }
 
+        binding.shoe = newShoe
+
         return binding.root
     }
 
     private fun sendValidationToast() {
-        Toast.makeText(requireView().context, "test", Toast.LENGTH_LONG).show()
+        Toast.makeText(requireView().context, "Please fill out all forms to add a new Shoe", Toast.LENGTH_LONG).show()
     }
 }
