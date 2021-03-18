@@ -9,6 +9,9 @@
             type="com.udacity.shoestore.ui.shoelist.ShoeListViewModel" />
     </data>
 
+    <!--
+    ConstraintLayout allows granular positioning of the FloatingActionButton here
+    -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
