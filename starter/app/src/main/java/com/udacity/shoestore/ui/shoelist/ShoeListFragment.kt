@@ -70,12 +70,7 @@ class ShoeListFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-        return if (item.itemId == R.id.logoutMenuItem) {
-            viewModel.onLogoutButtonTapped()
-            super.onOptionsItemSelected(item)
-        } else {
-            (NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
-                    || super.onOptionsItemSelected(item))
-        }
+        viewModel.onLogoutButtonTapped()
+        return super.onOptionsItemSelected(item)
     }
 }
