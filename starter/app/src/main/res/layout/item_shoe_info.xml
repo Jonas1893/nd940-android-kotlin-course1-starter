@@ -13,50 +13,48 @@
     Since this is a really simple view, the more flexible but also more complex ConstraintLayout
     is just not needed
     -->
-    <LinearLayout
-        android:id="@+id/muh"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="@dimen/shoe_cell_padding">
+        android:layout_height="wrap_content">
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+        <TextView
+            android:id="@+id/shoeNameTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/shoe_cell_padding"
+            android:layout_marginTop="@dimen/shoe_cell_padding"
+            android:text="@{String.format(@string/shoe_info_format, shoe.company, shoe.name)}"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/shoeSizeTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/shoeNameTextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@{String.format(@string/shoe_info_format, shoe.company, shoe.name)}"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/shoeSizeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/shoe_cell_padding"
+            android:text="@{String.format(@string/shoe_size_format, shoe.size)}"
+            android:textAlignment="viewEnd"
+            app:layout_constraintBottom_toBottomOf="@+id/shoeNameTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
 
-            <TextView
-                android:id="@+id/shoeSizeTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@{String.format(@string/shoe_size_format, shoe.size)}"
-                android:textAlignment="viewEnd" />
 
-        </LinearLayout>
+        <TextView
+            android:id="@+id/shoeDescriptionTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/shoe_cell_padding"
+            android:layout_marginTop="@dimen/shoe_cell_padding"
+            android:layout_marginEnd="@dimen/shoe_cell_padding"
+            android:text="@={shoe.description}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shoeNameTextView" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/shoeDescriptionTextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@={shoe.description}" />
-        </LinearLayout>
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
