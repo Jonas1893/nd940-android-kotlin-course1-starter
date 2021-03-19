@@ -16,6 +16,10 @@ object ShoeSizeConverter {
         value: String
     ): Double {
         // Converts String to Double.
+        if (value.isNullOrEmpty()) {
+            return 0.0
+        }
+
         return value.toDouble()
     }
 }
